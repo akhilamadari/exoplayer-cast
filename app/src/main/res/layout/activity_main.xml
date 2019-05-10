@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.akhilamadari.exoplayer.MainActivity">
 
-
     <android.support.v7.widget.Toolbar
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
@@ -24,8 +23,6 @@
         android:layout_height="match_parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-
-
         app:layout_constraintBottom_toBottomOf="@+id/my_toolbar"/>
 
 </android.support.constraint.ConstraintLayout>
