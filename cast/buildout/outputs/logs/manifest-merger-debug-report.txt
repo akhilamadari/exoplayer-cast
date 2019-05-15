@@ -1,0 +1,25 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml:16:1-61
+INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml:16:1-61
+INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml:16:1-61
+	package
+		ADDED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml:16:11-59
+		INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+		INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml:16:1-61
+uses-sdk
+INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+		ADDED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+		INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+		ADDED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml
+		INJECTED from /Users/akhilamadari/Documents/Android Projects/mycastapp/cast/src/main/AndroidManifest.xml

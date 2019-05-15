@@ -1,0 +1,33 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:16:1-22:12
+INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:16:1-22:12
+INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:16:1-22:12
+	package
+		ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:16:11-59
+		INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+		INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+	xmlns:android
+		ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:17:5-63
+application
+ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:18:5-21:19
+meta-data#com.google.android.gms.cast.framework.OPTIONS_PROVIDER_CLASS_NAME
+ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:19:9-20:97
+	android:value
+		ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:20:13-94
+	android:name
+		ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml:19:20-100
+uses-sdk
+INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+		ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+		INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+		ADDED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml
+		INJECTED from /Users/akhilamadari/Documents/exoplayer-stage1/cast/src/main/AndroidManifest.xml

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.google.android.exoplayer2.ext.cast.test" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="28" />
+
+    <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:functionalTest="false"
+        android:handleProfiling="false"
+        android:label="Tests for com.google.android.exoplayer2.ext.cast.test"
+        android:targetPackage="com.google.android.exoplayer2.ext.cast.test" />
+    <!-- This permission is required to start foreground services in Android P. -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application android:debuggable="true" >
+        <uses-library android:name="android.test.runner" />
+
+        <receiver
+            android:name="com.google.android.gms.cast.framework.media.MediaIntentReceiver"
+            android:exported="false" />
+
+        <service
+            android:name="com.google.android.gms.cast.framework.media.MediaNotificationService"
+            android:exported="false" />
+        <service
+            android:name="com.google.android.gms.cast.framework.ReconnectionService"
+            android:exported="false" />
+
+        <activity
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+    </application>
+
+</manifest>
