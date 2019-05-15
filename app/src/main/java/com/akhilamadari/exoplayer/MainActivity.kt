@@ -2,25 +2,36 @@ package com.akhilamadari.exoplayer
 
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
+import com.google.android.exoplayer2.ext.cast.CastPlayer
 import com.google.android.exoplayer2.source.hls.DefaultHlsDataSourceFactory
 import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
 import com.google.android.exoplayer2.util.Log
+import com.google.android.exoplayer2.util.MimeTypes
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.util.Util.getUserAgent
+import com.google.android.gms.cast.MediaInfo
+import com.google.android.gms.cast.MediaMetadata
+import com.google.android.gms.cast.MediaQueueItem
 import com.google.android.gms.cast.framework.CastButtonFactory
 import com.google.android.gms.cast.framework.CastContext
 import kotlinx.android.synthetic.main.activity_main.*
 
+
 class MainActivity : AppCompatActivity() {
+    private lateinit var castPlayer: CastPlayer
+    private var player: SimpleExoPlayer? = null
+    val videoString = "http://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/index_700_av-p.m3u8"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -91,7 +102,7 @@ class MainActivity : AppCompatActivity() {
                 or View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
     }
 
-    private var player: SimpleExoPlayer? = null
+
 
     private fun initPlayer() {
         player = ExoPlayerFactory.newSimpleInstance(
@@ -101,6 +112,18 @@ class MainActivity : AppCompatActivity() {
                 })
 
         epvVideo.player = player
+        castPlayer = CastPlayer(CastContext.getSharedInstance(this))
+
+        castPlayer.setSessionAvailabilityListener(object : CastPlayer.SessionAvailabilityListener {
+            override fun onCastSessionAvailable() {
+                castPlayer.loadItem(buildMediaQueueItem(videoString),0)
+            }
+            override fun onCastSessionUnavailable(){
+              //  = viewModel.onCastingStateChanged(false, castPlayer.currentPosition)
+
+            }
+        })
+
         val uri = Uri.parse("http://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/index_700_av-p.m3u8")
         val httpDataSourceFactory = DefaultHttpDataSourceFactory(getUserAgent(this,"exoplayer"))
         val hlsDataSourceFactory = DefaultHlsDataSourceFactory(httpDataSourceFactory)
@@ -112,6 +135,14 @@ class MainActivity : AppCompatActivity() {
         player?.playWhenReady = true
         player?.seekTo(0)
 
+    }
+    private fun buildMediaQueueItem(video :String): MediaQueueItem {
+        val movieMetadata = MediaMetadata(MediaMetadata.MEDIA_TYPE_MOVIE)
+        movieMetadata.putString(MediaMetadata.KEY_TITLE, "CBSN News")
+        val mediaInfo = MediaInfo.Builder(Uri.parse(video).toString())
+                .setStreamType(MediaInfo.STREAM_TYPE_BUFFERED).setContentType(MimeTypes.APPLICATION_M3U8)
+                .setMetadata(movieMetadata).build()
+        return MediaQueueItem.Builder(mediaInfo).build()
     }
     private fun disableClosedCaptionParams() = DefaultTrackSelector.ParametersBuilder()
             .setRendererDisabled(TRACK_TEXT, true)
