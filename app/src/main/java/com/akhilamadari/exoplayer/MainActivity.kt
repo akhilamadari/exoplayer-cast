@@ -3,6 +3,9 @@ package com.akhilamadari.exoplayer
 import android.net.Uri
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.Toolbar
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import com.google.android.exoplayer2.ExoPlayerFactory
 import com.google.android.exoplayer2.SimpleExoPlayer
@@ -10,20 +13,37 @@ import com.google.android.exoplayer2.source.hls.DefaultHlsDataSourceFactory
 import com.google.android.exoplayer2.source.hls.HlsMediaSource
 import com.google.android.exoplayer2.trackselection.DefaultTrackSelector
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory
+import com.google.android.exoplayer2.util.Log
 import com.google.android.exoplayer2.util.Util
 import com.google.android.exoplayer2.util.Util.getUserAgent
+import com.google.android.gms.cast.framework.CastButtonFactory
+import com.google.android.gms.cast.framework.CastContext
 import kotlinx.android.synthetic.main.activity_main.*
-
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        supportActionBar!!.setDisplayShowHomeEnabled(true)
-        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
+        val toolbar = findViewById<Toolbar>(R.id.my_toolbar)
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowHomeEnabled(true)
+        invalidateOptionsMenu()
+        CastContext.getSharedInstance(this)
+    }
 
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        super.onCreateOptionsMenu(menu)
+        menuInflater.inflate(R.menu.cast, menu)
+        CastButtonFactory.setUpMediaRouteButton(this, menu, R.id.media_route_menu_item)
+        return true
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item?.getItemId() == android.R.id.home) {
+           Log.e("helooo","pressed")
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onStart() {
@@ -81,7 +101,7 @@ class MainActivity : AppCompatActivity() {
                 })
 
         epvVideo.player = player
-        val uri = Uri.parse("http://live.field59.com/wwsb/ngrp:wwsb1_all/playlist.m3u8")
+        val uri = Uri.parse("http://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/index_700_av-p.m3u8")
         val httpDataSourceFactory = DefaultHttpDataSourceFactory(getUserAgent(this,"exoplayer"))
         val hlsDataSourceFactory = DefaultHlsDataSourceFactory(httpDataSourceFactory)
         val hlsMediaSourceFactory = HlsMediaSource.Factory(hlsDataSourceFactory)
