@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        hideSystemUi();
+        hideSystemUi()
         if ((Util.SDK_INT <= 23 || player == null)) {
             initPlayer()
         }
@@ -124,7 +124,7 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
-        val uri = Uri.parse("http://cbsnewshd-lh.akamaihd.net/i/CBSNHD_7@199302/index_700_av-p.m3u8")
+        val uri = Uri.parse(videoString)
         val httpDataSourceFactory = DefaultHttpDataSourceFactory(getUserAgent(this,"exoplayer"))
         val hlsDataSourceFactory = DefaultHlsDataSourceFactory(httpDataSourceFactory)
         val hlsMediaSourceFactory = HlsMediaSource.Factory(hlsDataSourceFactory)
